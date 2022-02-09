@@ -1,0 +1,66 @@
+[global]
+rw=read
+ioengine=libaio
+invalidate=1
+ramp_time=5
+iodepth=1
+runtime=180
+size=10T # total operation size, limited by runtime
+time_based
+direct=1
+group_reporting=1
+per_job_logs=0
+bs=8k
+filesize=1g
+nrfiles=200
+file_service_type=sequential
+filename_format=$filenum
+[1]
+ stonewall
+ numjobs=1
+ openfiles=1
+ 
+[10]
+ stonewall
+ numjobs=10
+ openfiles=10
+ 
+[20]
+ stonewall
+ numjobs=20
+ openfiles=20
+ 
+[40]
+ stonewall
+ numjobs=40
+ openfiles=40
+ 
+[60]
+ stonewall
+ numjobs=60
+ openfiles=60
+ 
+[80]
+ stonewall
+ numjobs=80
+ openfiles=80
+ 
+[100]
+ stonewall
+ numjobs=100
+ openfiles=100
+ 
+[120]
+ stonewall
+ numjobs=120
+ openfiles=120
+ 
+[140]
+ stonewall
+ numjobs=140
+ openfiles=140
+ 
+[160]
+ stonewall
+ numjobs=160
+ openfiles=160
