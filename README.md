@@ -1,19 +1,17 @@
 # Filesystem benchmarking
 
-Тесты проводятся на 200 файлах, размером 1ГБ каждый. Размер блока - 8КБ т.к. именно такие
-страницы чаще всего используются в БД. Случайные сценарии вычитывают блоки случайно из
-случайных файлов. Последовательные сценарии вычитывают блоки последовательно переходя от файла
-к файлу.
+The test layout 200 files of 1g each. Block size - 8k (the most common for databases).
+Random scenarios makes random io with random files. Sequential scenarios makes sequental
+io.
 
-Всего есть 4 сценария - случайное чтение, случайная запись, последовательное чтение и
-последовательная запись. В каждом из сценариев имеется 10 тестов
+Scenarios are in fio directory. Every scenario has some tests. Every test increases count
+of threads.
 
-plot для каждого результата измерения рисует 4 графика - latency, bandwidth, iops и cpu в
-зависимости от количества потоков.
+plot.sh helps draw results.
 
-running:
+Running:
 
 ```
 sudo make DIR=/filesystem-mount-point/test-dir-name
-./plot.sh 001-read-result.json
+./plot.sh 001-randread-bs8KB.json result.hml
 ```

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RESULT=/media/pubstor.acme.com/h/tmp/filesystem-test.html
+RESULT=$2
 echo "<h1>Filesystem test</h1><br><table><tr><td>" > $RESULT
 OP=`echo $1 | awk -F '-' '{print $2}'`
 OP_CLASS=$OP
